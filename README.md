@@ -19,3 +19,4 @@ sudo cmake --install .
 ```
 ./init_all.sh "<maintainer_name>" <maintainer_email>
 ```# 82-65-73-65-83
+# 82-65-73-65-83
