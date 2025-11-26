@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Robot UI – Corporate Futuristic</title>
+
+    <!-- Allow External Content (iframe/webview) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="brand">
+        <img src="assets/logo.png" class="logo" />
+        <div class="title">RAISA HUMANOID ITS</div>
+      </div>
+      <div class="battery-status" id="battery-status">
+        <div class="battery-icon">
+          <div class="battery-level" id="battery-level"></div>
+        </div>
+        <span id="battery-percent">--%</span>
+      </div>
+      <!-- <div class="menu-icon">☰</div> -->
+    </header>
+
+    <!-- PAGE: KONTEN -->
+    <main id="konten" class="page active">
+      <div class="content" id="content-grid">
+        
+
+        <div
+          class="card konten"
+          data-type="video"
+          data-src="assets/profile-its.mp4"
+        >
+          <img src="assets/img-profile-its.jpg" />
+          <div class="card-info">
+            <h1>Video Profile ITS</h1>
+            <!-- <h3>video singkat tentang profile ITS</h3> -->
+          </div>
+        </div>
+
+        <div
+          class="card konten"
+          data-type="video"
+          data-src="assets/RAISA_1.mp4"
+        >
+          <img src="assets/raisa-thumb.png" />
+          <div class="card-info">
+            <h1>RAISA Humanoid</h1>
+            <!-- <h3>video singkat tentang profile ITS</h3> -->
+          </div>
+        </div>
+
+        <div
+          class="card konten"
+          data-type="video"
+          data-src="assets/ROBOT AI_1.mp4"
+        >
+          <img src="assets/ai-thumb.png" />
+          <div class="card-info">
+            <h1>Robot Edukasi AI </h1>
+            <!-- <h3>video singkat tentang profile ITS</h3> -->
+          </div>
+        </div>
+
+        <div
+          class="card konten"
+          data-type="video"
+          data-src="assets/robot anjing berkaki 4.mp4"
+        >
+          <img src="assets/robot_anjing.jpeg" />
+          <div class="card-info">
+            <h1>Robot Anjing ITS</h1>
+            <!-- <h3>video singkat tentang profile ITS</h3> -->
+          </div>
+        </div>
+
+        <div
+          class="card konten"
+          data-type="video"
+          data-src="assets/RAISA 2.0.mp4"
+        >
+          <img src="assets/raisa_lama_2.png" />
+          <div class="card-info">
+            <h1>Robot RAISA ITS</h1>
+            <!-- <h3>video singkat tentang profile ITS</h3> -->
+          </div>
+        </div>
+
+        <div
+          class="card konten"
+          data-type="video"
+          data-src="assets/TEASER 1 RAISA 2.0.mp4"
+        >
+          <img src="assets/raisa_lama.png" />
+          <div class="card-info">
+            <h1>Teaser RAISA ITS</h1>
+            <!-- <h3>video singkat tentang profile ITS</h3> -->
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- PAGE: MAKANAN -->
+    <main id="makanan" class="page">
+      <div class="content" id="food-grid">
+        <div class="card makanan" data-type="food-detail">
+          <img src="assets/food.jpeg" />
+          <div class="overlay">Ayam Geprek</div>
+        </div>
+
+        <div class="card makanan" data-type="food-detail">
+          <img src="assets/sate-ayam.jpg" />
+          <div class="overlay">Sate Ayam</div>
+        </div>
+
+        <div class="card makanan" data-type="food-detail">
+          <img src="assets/bakso.jpeg" />
+          <div class="overlay">Bakso</div>
+        </div>
+
+        <div class="card makanan" data-type="food-detail">
+          <img src="assets/nasi-goreng.jpg" />
+          <div class="overlay">Nasi Goreng</div>
+        </div>
+
+        <div class="card makanan" data-type="food-detail">
+          <img src="assets/tahu-campur.jpg" />
+          <div class="overlay">Tahu Campur</div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- ======= PAGE: LAIN-LAIN ======= -->
+    <main id="lain" class="page">
+      <div class="lain-grid">
+        <!-- Camera Button -->
+        <div class="lain-btn" id="camera-btn">
+          <img src="assets/icon-camera.png" class="lain-icon" />
+          <p>KAMERA</p>
+        </div>
+
+        <!-- Promo Video Button -->
+        <div class="lain-btn" id="promo-btn">
+          <img src="assets/icon-promotional.png" class="lain-icon" />
+          <p>VIDEO</p>
+        </div>
+
+        <!-- About Button -->
+        <div class="lain-btn" id="about-btn">
+          <img src="assets/icon-about.png" class="lain-icon" />
+          <p>TENTANG RAISA</p>
+        </div>
+
+        <!-- Docking Charge Button -->
+        <div class="lain-btn" id="docking-btn">
+          <img src="assets/icon-charge.png" class="lain-icon" />
+          <p>GO TO DOCKING CHARGE</p>
+        </div>
+
+        <div class="lain-btn" id="music-btn">
+          <img src="assets/icon-music.png" class="lain-icon" />
+          <p>MUSIC</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER NAV -->
+    <footer class="footer">
+      <button class="nav-btn active" data-page="konten">
+        📄
+        <p>KONTEN</p>
+      </button>
+      <button class="nav-btn" data-page="makanan">
+        🍱
+        <p>MAKANAN</p>
+      </button>
+      <button class="nav-btn" data-page="lain">
+        🤖
+        <p>INTERAKSI</p>
+      </button>
+      <!-- <button class="nav-btn" id="add-btn">➕<p>TAMBAH</p></button> -->
+    </footer>
+
+    <!-- FULLSCREEN VIEWER -->
+    <div id="viewer-overlay" class="viewer hidden">
+      <!-- Viewer Top Header -->
+      <div class="viewer-header">
+        <button id="viewer-close">✕</button>
+      </div>
+
+      <!-- Viewer Content -->
+      <div class="viewer-content" id="viewer-content"></div>
+    </div>
+
+    <!-- ABOUT OVERLAY -->
+    <div id="about-overlay" class="about-overlay hidden">
+      <div class="about-content">
+        <button id="about-close">✕</button>
+        <h1>
+          Saya adalah <b>Robot Raisa Humanoid</b>, robot servis yang bertugas
+          mengantarkan barang di restoran, kantor, dan berbagai fasilitas umum.
+          Dengan desain modern menyerupai manusia, Saya memiliki layar
+          interaktif dan ruang penyimpanan untuk membawa dokumen, makanan, atau
+          minuman. Berbekal sistem navigasi otomatis, Saya dapat bergerak
+          mandiri dan efisien sehingga membantu meningkatkan pelayanan serta
+          meringankan pekerjaan manusia.
+        </h1>
+      </div>
+    </div>
+
+    <!-- MUSIC OVERLAY -->
+    <div id="music-overlay" class="viewer hidden">
+      <div class="viewer-header">
+        <button id="music-close">✕</button>
+      </div>
+      <div class="viewer-content music-content">
+        <div class="music-list-container">
+          <h2>🎵 Pilih Lagu</h2>
+          <ul id="music-list"></ul>
+        </div>
+      </div>
+    </div>
+    <audio id="bgm-player" preload="auto"></audio>
+
+    <!-- DOCKING STATUS OVERLAY -->
+    <div id="docking-overlay" class="viewer hidden">
+      <div class="docking-box">
+        <img src="assets/icon-charge.png" class="docking-img" />
+        <h2 id="docking-message">SEDANG MENUJU CHARGING PILE!</h2>
+        <button id="docking-cancel">CANCEL</button>
+        <button id="docking-close" class="hidden">CLOSE</button>
+      </div>
+    </div>
+
+    <script src="./roslib.min.js"></script>
+    <script type="module" src="bridge.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

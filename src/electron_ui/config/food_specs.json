@@ -1,0 +1,76 @@
+[
+  {
+    "id": "ayam-geprek",
+    "name": "Ayam Geprek",
+    "image": "assets/food.jpeg",
+    "price": "Rp 18.000",
+    "ingredients": [
+      "Ayam fillet",
+      "Tepung bumbu",
+      "Cabai rawit",
+      "Bawang putih",
+      "Garam",
+      "Minyak goreng"
+    ]
+  },
+  {
+    "id": "sate-ayam",
+    "name": "Sate Ayam",
+    "image": "assets/sate-ayam.jpg",
+    "price": "Rp 20.000",
+    "ingredients": [
+      "Daging ayam",
+      "Bumbu kacang",
+      "Kecap manis",
+      "Lontong",
+      "Bawang merah"
+    ]
+  },
+  {
+    "id": "bakso",
+    "name": "Bakso",
+    "image": "assets/bakso.jpeg",
+    "price": "Rp 18.000",
+    "ingredients": [
+      "Bakso sapi",
+      "Mi kuning",
+      "Tahu goreng",
+      "Kaldu sapi",
+      "Seledri",
+      "Bawang goreng"
+    ]
+  },
+  {
+    "id": "nasi-goreng",
+    "name": "Nasi Goreng",
+    "image": "assets/nasi-goreng.jpg",
+    "price": "Rp 22.000",
+    "ingredients": [
+      "Nasi putih",
+      "Telur ayam",
+      "Ayam suwir",
+      "Kecap manis",
+      "Kerupuk",
+      "Bawang merah",
+      "Cabai"
+    ]
+  },
+  {
+  "id": "tahu-campur",
+  "name": "Tahu Campur",
+  "image": "assets/tahu-campur.jpg",
+  "price": "Rp 20.000",
+  "ingredients": [
+    "Tahu goreng",
+    "Lontong",
+    "Kikil sapi",
+    "Taoge",
+    "Selada",
+    "Petis udang",
+    "Kaldu sapi",
+    "Bawang goreng",
+    "Sambal"
+  ]
+}
+
+]

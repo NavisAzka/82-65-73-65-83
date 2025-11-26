@@ -1,0 +1,49 @@
+cmake_minimum_required(VERSION 3.8)
+project(communication)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# find dependencies
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(ros2_utils REQUIRED)
+find_package(ros2_interface REQUIRED)
+find_package(ds4_driver_msgs REQUIRED)
+find_package(yaml-cpp REQUIRED)
+find_package(ament_index_cpp REQUIRED)
+
+
+add_subdirectory(../../cpr ${CMAKE_CURRENT_BINARY_DIR}/cpr)
+include_directories(include)
+
+add_executable(wifi_control src/wifi_control.cpp)
+ament_target_dependencies(wifi_control rclcpp std_msgs ros2_utils)
+
+add_executable(io_reeman src/io_reeman.cpp)
+ament_target_dependencies(io_reeman rclcpp std_msgs ros2_utils ds4_driver_msgs ament_index_cpp ros2_interface)
+target_link_libraries(io_reeman cpr::cpr)
+
+install(TARGETS
+  wifi_control
+  io_reeman
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(PROGRAMS scripts/telemetry.py DESTINATION lib/${PROJECT_NAME})
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  # the following line skips the linter which checks for copyrights
+  # comment the line when a copyright and license is added to all source files
+  set(ament_cmake_copyright_FOUND TRUE)
+  # the following line skips cpplint (only works in a git repo)
+  # comment the line when this package is in a git repo and when
+  # a copyright and license is added to all source files
+  set(ament_cmake_cpplint_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_package()

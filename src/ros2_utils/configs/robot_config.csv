@@ -1,0 +1,2 @@
+ip, init_x, init_y, init_theta, routes, routes_init
+10.42.0.166, 0, 0, 0, 1-2-3-4, 100
