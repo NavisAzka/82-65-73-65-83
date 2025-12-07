@@ -39,6 +39,7 @@ def generate_launch_description():
             {
                 "max_vx": 0.3,
                 "max_vth": 0.3,
+                # "reeman_controller_ip": "192.168.100.238",
                 "reeman_controller_ip": "10.42.0.166",
                 "configs_path": path_config,
                 "target_point_1_x": 2.0,

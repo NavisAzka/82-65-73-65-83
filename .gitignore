@@ -2,4 +2,4 @@ install/
 build/ 
 log/
 assets/
-src/electron_ui/node_modules/
+node_modules/

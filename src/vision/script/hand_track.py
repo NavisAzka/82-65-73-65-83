@@ -155,8 +155,8 @@ class HandTrack(Node):
         self.pub_hand_data.publish(msg)
 
         # Publish debug frame
-        # img_msg = self.bridge.cv2_to_imgmsg(frame, "bgr8")
-        # self.pub_frame.publish(img_msg)
+        img_msg = self.bridge.cv2_to_imgmsg(frame, "bgr8")
+        self.pub_frame.publish(img_msg)
 
     # === CLEANUP ===
     def destroy_node(self):

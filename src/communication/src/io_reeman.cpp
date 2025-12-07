@@ -431,9 +431,9 @@ public:
             set_display_mode = 1;
         }
 
-        logger.info("cntr display: %d", normal_global_counter_ms);
+        // logger.info("cntr display: %d", normal_global_counter_ms);
 
-        normal_global_counter_ms += 250;
+        normal_global_counter_ms += 100;
     }
 
     void callback_hand_gesture(std_msgs::msg::Int16MultiArray::SharedPtr msg)
@@ -449,7 +449,11 @@ public:
             used_hand_gesture = hand_gesture;
             used_hand_position = hand_position;
 
-            // fsm_robot.value = FSM_SAFEOP_HANDTRACK;
+            if (fsm_robot.value != FSM_SAFEOP_HANDTRACK)
+            {
+                logger.info("Switching to HAND TRACKING mode due to hand gesture detected");
+                // fsm_robot.value = FSM_SAFEOP_HANDTRACK; //
+            }
 
             std_msgs::msg::Int8 msg_hand_audio;
             msg_hand_audio.data = 1;
@@ -552,7 +556,7 @@ public:
         case 1:
             if (used_hand_position < -tolerance)
             {
-                send_speed_command(0.0f, 0.01f);
+                // send_speed_command(0.0f, 0.01f);
                 // if (motion_to_point(final_pose_x,
                 //                     final_pose_y,
                 //                     target_yaw_start - 0.1f))
@@ -565,7 +569,7 @@ public:
             }
             else if (used_hand_position > tolerance)
             {
-                send_speed_command(0.0f, -0.01f);
+                // send_speed_command(0.0f, -0.01f);
                 // if (motion_to_point(final_pose_x,
                 //                     final_pose_y,
                 //                     target_yaw_start + 0.1f))
@@ -617,19 +621,13 @@ public:
         break;
         case 4:
         {
-            if (counter_stop < 2)
+            if (obs_front_near.status == 1 && obs_front_near.distance < 0.5f)
             {
-                counter_stop++;
+                send_stop_command();
+                motion_cancel();
+                fsm_gesture.value = 5;
             }
-            else
-            {
-                if (obs_front_near.status == 1 && obs_front_near.distance < 0.5f)
-                {
-                    send_stop_command();
-                    motion_cancel();
-                    fsm_gesture.value = 5;
-                }
-            }
+
             break;
         }
         case 5:
@@ -1237,6 +1235,12 @@ public:
         get_robot_global_data();
         get_lidar_data();
 
+        printf("Pose: x=%.2f, y=%.2f, yaw=%.2f | Battery: %.2f%% | Mode: %d | Charging Status: %d\n",
+               final_pose_x, final_pose_y, final_pose_yaw,
+               battery_soc,
+               robot_current_mode,
+               charging_status);
+
         if (global_counter_ms - last_time_connected_ds4 > 2000)
         {
             if (counter_kirim_motion_0++ < 3)
@@ -1413,7 +1417,9 @@ public:
                 logger.warn("robot_operation_status set to 0");
                 robot_operation_status = 0;
             }
-            
+
+            fsm_robot.value = FSM_SAFEOP;
+
             float vx = ds4_current_status.axis_left_y * max_vx;
             float vth = ds4_current_status.axis_right_x * max_vth;
             send_speed_command(vx, vth);
